@@ -1,0 +1,53 @@
+.iconer{
+    width: 30px;
+height: 30px;
+flex-shrink: 0;
+}
+.user-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+  }
+.debitColor{
+    color: #FE5C73;
+    font-family: inter;
+}
+.creditColor{
+    color: #16DBAA;
+    font-family: Inter;
+}
+
+.paragraph{
+color: #505887;
+font-family: Inter;
+font-size:15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.list-items{
+    display: flex;
+    width:70%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.user-logo{
+    width: 30px;
+height: 30px;
+border-radius: 50%;
+margin-right: 10px;
+}
+.user-name{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100px;
+}
+.iconer{
+    height:5px;
+    width: 5px;
+    margin-left: 5px;
+}

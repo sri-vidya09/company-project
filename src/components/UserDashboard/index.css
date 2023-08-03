@@ -1,0 +1,417 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    /* overflow: hidden; */
+}
+
+@media screen and (max-width:991px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.dashboard-container {
+    width: 80%;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width:991px) {
+    .dashboard-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .dashboard-container {
+        width: 120%;
+    }
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.heading {
+    color: #343C6A;
+    font-family: "Inter";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.dashboard-sub-container {
+    background-color: #F5F7FA;
+    /* height: 100%; */
+    padding: 20px;
+}
+
+@media screen and (max-width:400px) {
+    .dashboard-sub-container {
+        width: 100%;
+    }
+}
+
+.type-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+@media screen and (max-width:576px) {
+    .type-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .type-container {
+        align-items: flex-start;
+        width: 70%;
+    }
+}
+
+.credit-heading {
+    color: #16DBAA;
+    font-family: "Inter";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media screen and (max-width:576px) {
+    .credit-heading {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .credit-heading {
+        font-size: 18px;
+    }
+}
+
+.credit-para {
+    color: #718EBF;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+@media screen and (max-width:576px) {
+    .credit-para {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .credit-para {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .type-img {
+        height: 140px;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .type-img {
+        height: 140px;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .type-img {
+        height: 120px;
+        width: 140px;
+    }
+}
+
+
+.credit-debit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+}
+
+@media screen and (max-width:576px) {
+    .credit-debit-container {
+        width: 90%;
+    }
+}
+
+.debit-heading {
+    color: #FE5C73;
+    font-family: "Inter";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media screen and (max-width:576px) {
+    .debit-heading {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .debit-heading {
+        font-size: 18px;
+    }
+}
+
+.debit-para {
+    color: #718EBF;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+@media screen and (max-width:576px) {
+    .debit-para {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .debit-para {
+        font-size: 18px;
+    }
+}
+
+.last-transaction-heading {
+    color: #333B69;
+    font-family: "Inter";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 10px;
+    margin: 10px;
+}
+
+.transaction-sub-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    /* margin: 20px; */
+    padding: 5px;
+    margin-bottom: 10px;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width:700px) {
+    .transaction-sub-container {
+        overflow-x: scroll;
+    }
+}
+
+.transactions-list {
+    padding-left: 0px;
+    list-style-type: none;
+    /* background-color: #ffffff; */
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width:700px) {
+    .transactions-list {
+        width: 700px;
+    }
+}
+
+/* @media screen and (max-width:450px) {
+    .transactions-list {
+        width: 550px;
+    }
+}
+
+
+@media screen and (max-width:400px) {
+    .transactions-list {
+        width: 500px;
+    }
+} */
+
+.transaction-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* border-bottom: 1px solid #E2E2E2; */
+}
+
+.separator {
+    border: 1px solid #E2E2E2;
+    width: 95%;
+}
+
+.transaction-name-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25%;
+}
+
+.transaction-name {
+    color: #505887;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 3px;
+}
+
+.transaction-category {
+    color: #718EBF;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 20%;
+}
+
+.transaction-date {
+    color: #718EBF;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 20%;
+}
+
+.transaction-amount {
+    /* text-align: right; */
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.debit {
+    color: #FE5C73;
+}
+
+.credit {
+    color: #16DBAA;
+}
+
+.loader-container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.overview-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+@media screen and (max-width:400px){
+    .overview-container{
+        width: 100%;
+        overflow-x: scroll;
+        margin: auto;
+    }
+}
+
+.overview-sub-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overview-sub-container-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 20%;
+}
+
+@media screen and (max-width:500px) {
+    .overview-sub-container {
+        flex-direction: column;
+    }
+
+    .overview-sub-container-1 {
+        width: 40%;
+    }
+
+}
+
+
+
+.overview-heading {
+    color: #718EBF;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.overview-sub-container-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.overview-btn-1 {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #4C78FF;
+    border-width: 0;
+    box-shadow: 0px 0px 15px 0px rgba(17, 52, 133, 0.50) inset;
+}
+
+.overview-para {
+    color: #718EBF;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.overview-btn-2 {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FCAA0B;
+    border-width: 0;
+    box-shadow: 0px 0px 15px 0px rgba(172, 13, 108, 0.50) inset;
+}

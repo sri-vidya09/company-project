@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoginForm from './components/LoginForm';
+import UserDashboard from './components/UserDashboard'
+import UserTransactions from './components/UserTransactions';
+import UserProfile from './components/UserProfile';
+import AdminDashboard from './components/AdminDashboard';
+import AdminTransactions from './components/AdminTransactions';
+import HandleRedirect from './components/HandleRedirect';
 import './App.css';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+      <Route exact path="/user-dashboard" element={<UserDashboard />} />
+        <Route exact path="/login" element={<LoginForm />} />
+        <Route exact path="/user-transactions" element={<UserTransactions />} />
+        <Route exact path='/user-profile' element={<UserProfile />} />
+        <Route exact path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route exact path="/admin-transactions" element={<AdminTransactions />} />
+        <Route path="*" element={<HandleRedirect />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
