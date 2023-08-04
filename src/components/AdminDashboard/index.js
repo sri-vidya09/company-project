@@ -83,7 +83,7 @@ const AdminDashboard = () => {
                 setApiStatusOne(apiStatusConstants.failure)
             }
         } catch (err) {
-            // console.error(err)
+             console.error(err)
         }
     }
 
@@ -128,7 +128,7 @@ const AdminDashboard = () => {
                 setApiStatus(apiStatusConstants.failure)
             }
         }).catch(error => {
-            // console.error('Error:', error);
+            console.error('Error:', error);
         });
     }
 
@@ -151,7 +151,7 @@ const AdminDashboard = () => {
                 setApiStatus(apiStatusConstants.failure)
             }
         }).catch(error => {
-            // console.error('Error:', error);
+             console.error('Error:', error);
         });
     }
 
@@ -197,7 +197,7 @@ const AdminDashboard = () => {
                                 {transaction.type.toLowerCase() === "credit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690724471/creditted_jcivrd.png' alt='creditted' />)}
                                 {transaction.type.toLowerCase() === "debit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690724471/debitted_smwzwr.png' alt='debitted' />)}
                                 <div className='admin-transaction-img-container'>
-                                    <img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690873427/admin-profiles_t49bxr.png' />
+                                    <img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690873427/admin-profiles_t49bxr.png'  alt="Arlene McCoy"/>
                                     <p className='admin-transaction-img-container-para'>Arlene McCoy</p>
                                 </div>
                             </div>

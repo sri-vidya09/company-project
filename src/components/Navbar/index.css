@@ -172,3 +172,15 @@
   padding: 0;
   margin: 0;
 }
+@media screen and (max-width:576px){
+  .profile-name{
+    display: none;
+  }
+  .profile-mail{
+    display: none;
+  }
+  .sidebar-profile-pic{
+    display: none;
+  }
+
+}

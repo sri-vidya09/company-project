@@ -57,13 +57,12 @@ const LoginForm = () => {
 
     return (
         <div className="container">
-            <div className="loginContainerMain">
-                
-                    <img
-              src="https://res.cloudinary.com/reddyimgs/image/upload/v1690551063/Frame_507_ogpjs9.png"
-              alt="website logo"
-              className="log-logo"
-            />
+            <div className="loginContainerMain">  
+                <img
+                    src="https://res.cloudinary.com/reddyimgs/image/upload/v1690551063/Frame_507_ogpjs9.png"
+                    alt="website logo"
+                    className="log-logo"
+                   />
                     <form className="loginFormContainer" onSubmit={handleLogin}>
                         <div >
                             <div className="inputFormContainer">
