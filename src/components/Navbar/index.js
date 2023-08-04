@@ -32,6 +32,7 @@ const Navbar = props => {
                         <BiSolidUser className={`sidebar-icon ${activeId === 2 ? 'active-heading' : ''}`} />
                         <p className={`button-name ${activeId === 2 ? 'active-heading' : ''}`}>Profile</p>
                     </Link>
+                    
                 </div>
             </div>
             <div className='sidebar-profile-container'>
@@ -40,7 +41,7 @@ const Navbar = props => {
                     <h1 className='profile-name'>Rhye</h1>
                     <p className='profile-mail'>olivia@untitledui.com</p>
                 </div>
-                <LogoutBtn />
+                <LogoutBtn/>
             </div>
         </div>
     )

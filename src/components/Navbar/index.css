@@ -137,9 +137,12 @@
 @media screen and (max-width:576px) {
   .sidebar-profile-container{
       align-items: flex-end;
-      justify-content: end;
+      justify-content: flex-end;
   }
-  
+  .logout-btn{
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
 }
 
 
@@ -172,6 +175,7 @@
   padding: 0;
   margin: 0;
 }
+
 @media screen and (max-width:576px){
   .profile-name{
     display: none;
@@ -181,6 +185,9 @@
   }
   .sidebar-profile-pic{
     display: none;
+  }
+  .logout-btn1{
+    display:none;
   }
 
 }
