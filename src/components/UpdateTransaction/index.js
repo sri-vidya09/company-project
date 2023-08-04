@@ -6,10 +6,9 @@ import {useCookies } from 'react-cookie'
 
 const overlayStyle = { background: 'rgba(0,0,0,0.5)' };
 
-const UpdatePopup = props => {
+const UpdateTransaction = props => {
     const [cookie,_] = useCookies(["user_id"])
     const { transaction,reloadOperation,id} = props
-    // console.log(transaction)
     const dateString = transaction.date;
     const dateObject = new Date(dateString);
     const day = String(dateObject.getDate()).padStart(2, "0");
@@ -80,7 +79,7 @@ const UpdatePopup = props => {
             close()
             reload()
         }catch(error){
-            // console.error(error)
+           
         }
     }
 
@@ -136,4 +135,4 @@ const UpdatePopup = props => {
 
 }
 
-export default UpdatePopup
+export default UpdateTransaction

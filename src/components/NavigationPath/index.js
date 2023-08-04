@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom"
 
-const HandleRedirect = () => {
+const NavigationPath = () => {
     const navigate = useNavigate()
     const [cookie,_] = useCookies(["user_id"])
     useEffect(() => {
@@ -18,4 +18,4 @@ const HandleRedirect = () => {
     return null
   }
 
-export default HandleRedirect
+export default NavigationPath

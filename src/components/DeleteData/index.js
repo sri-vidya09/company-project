@@ -7,7 +7,7 @@ import { useCookies } from 'react-cookie'
 
 const overlayStyle = { background: 'rgba(0,0,0,0.5)' };
 
-const DeletePopup = props => {
+const DeleteData = props => {
     const [cookie,_] = useCookies(["user_id"])
     const { transaction,reloadOperation,id} = props
 
@@ -71,4 +71,4 @@ return (
 )
 }
 
-export default DeletePopup
+export default DeleteData

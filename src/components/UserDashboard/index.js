@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Navbar from '../Navbar'
 import { TailSpin} from 'react-loader-spinner'
-import DeletePopup from '../DeletePopup'
+import DeleteData from '../DeleteData'
 import AddTransaction from '../AddTransaction'
-import UpdatePopup from '../UpdatePopup'
+import UpdateTransaction from '../UpdateTransaction'
 import BarChart from '../BarChart'
 
 
@@ -209,8 +209,8 @@ const UserDashboard = () => {
                             <p className='transaction-date'>{formatDate(transaction.date)}</p>
                             <p className={`transaction-amount ${transaction.type.toLowerCase() === "credit" ? 'credit' : 'debit'}`}>{`${transaction.type === "credit" ? '+' : '-'}$${transaction.amount}`}</p>
                             <div className='update-delete-container'>
-                                <UpdatePopup transaction={transaction} reloadOperation={fetchTransactions} id={-1} />
-                                <DeletePopup transaction={transaction} reloadOperation={fetchTransactions} id={-1} />
+                                <UpdateTransaction transaction={transaction} reloadOperation={fetchTransactions} id={-1} />
+                                <DeleteData transaction={transaction} reloadOperation={fetchTransactions} id={-1} />
                             </div>
                         </div>
                         {ind !== len - 1 && (<hr className='separator' />)}

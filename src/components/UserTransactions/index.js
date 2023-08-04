@@ -6,9 +6,9 @@ import { TailSpin } from 'react-loader-spinner'
 import { VscEdit } from 'react-icons/vsc'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import axios from 'axios';
-import DeletePopup from '../DeletePopup';
+import DeleteData from '../DeleteData';
 import AddTransaction from '../AddTransaction';
-import UpdatePopup from '../UpdatePopup';
+import UpdateTransaction from '../UpdateTransaction';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -161,8 +161,8 @@ const UserTransactions = () => {
                                 <p className={`transaction-amount ${transaction.type.toLowerCase() === "credit" ? 'credit' : 'debit'}`}>{`${transaction.type.toLowerCase() === "credit" ? '+' : '-'}$${transaction.amount}`}</p>
                             </div>
                             <div className='all-transaction-update-delete-sub-container'>
-                                <UpdatePopup transaction={transaction} reloadOperation={fetchAllTransactions} id={activeId} />
-                                <DeletePopup transaction={transaction} reloadOperation={fetchAllTransactions} id={activeId} />
+                                <UpdateTransaction transaction={transaction} reloadOperation={fetchAllTransactions} id={activeId} />
+                                <DeleteData transaction={transaction} reloadOperation={fetchAllTransactions} id={activeId} />
                             </div>
                         </div>
                         {ind !== len - 1 && (<hr className='separator' />)}

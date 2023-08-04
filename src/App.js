@@ -5,7 +5,7 @@ import UserTransactions from './components/UserTransactions';
 import UserProfile from './components/UserProfile';
 import AdminDashboard from './components/AdminDashboard';
 import AdminTransactions from './components/AdminTransactions';
-import HandleRedirect from './components/HandleRedirect';
+import NavigationPath from './components/NavigationPath';
 import './App.css';
 
 
@@ -19,7 +19,7 @@ const App = () => {
         <Route exact path='/user-profile' element={<UserProfile />} />
         <Route exact path="/admin-dashboard" element={<AdminDashboard />} />
         <Route exact path="/admin-transactions" element={<AdminTransactions />} />
-        <Route path="*" element={<HandleRedirect />} />
+        <Route path="*" element={<NavigationPath />} />
       </Routes>
     </BrowserRouter>
   );

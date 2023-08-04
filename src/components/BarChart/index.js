@@ -72,7 +72,7 @@ const options = {
         },
         y: {
             min: 0,
-            max: 150000,
+            max: 170000,
             grid: {
                 display: true
             },
