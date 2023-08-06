@@ -118,7 +118,7 @@ const BarChart = props => {
                 borderWidth:3,
                 borderColor:"#1f77b4",
                 barThickness:calculateBarThickness(), 
-                padding:"10px",  
+                padding:10,  
             },
             {
                 label: 'Credit',
@@ -128,7 +128,7 @@ const BarChart = props => {
                 borderWidth:3,
                 borderColor:"#fd7f0e",
                 barThickness:calculateBarThickness(),
-                padding:"10px",
+                padding:10,
             },
         ],
     };

@@ -23,7 +23,7 @@ const LoginForm = () => {
 
     }
 
-    const onSubmitFailure = msg => {
+    const onSubmitFailure = err => {
         setErr(true)
         setErrMsg("Invalid Credentials")
     }
@@ -37,12 +37,13 @@ const LoginForm = () => {
             headers: {
                 'content-type': 'application/json',
                 'x-hasura-admin-secret': 'g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF'
+                
             },
             body: JSON.stringify(userDetails)
         }
         try {
             const response = await fetch(url, options)
-            // console.log(response)
+             //console.log(response)
             if (response.ok === true) {
                 const data = await response.json();
                 onSubmitSuccess(data.get_user_id)
@@ -50,7 +51,9 @@ const LoginForm = () => {
                 onSubmitFailure(response.data)
             }
         } catch (error) {
-            // console.error(error)
+            //console.error(error)
+            setErr(true)
+            setErrMsg("Invalid Credentials")
         }
 
     }
@@ -72,7 +75,7 @@ const LoginForm = () => {
                             <div className="inputFormContainer">
                                 <label className="loginFormName" htmlFor='password'>Password</label>
                                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="password" className="loginFormInput" placeholder='Password' />
-                                {err && (<p className="errorMsg">{errMsg}</p>)}
+                                {err && (<p className="errorMsg">*{errMsg}</p>)}
                             </div>
                             <button type="submit" className="sign-in-btn">Sign In</button>
                         </div>
