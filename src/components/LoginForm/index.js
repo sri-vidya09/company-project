@@ -30,6 +30,15 @@ const LoginForm = () => {
 
     const handleLogin = async event => {
         event.preventDefault()
+        if (email === "") {
+            setErr(true)
+            setErrMsg("Enter E-mail")
+            return
+        } else if (password === "") {
+            setErr(true)
+            setErrMsg("Enter Password")
+            return
+        } 
         const url = "https://bursting-gelding-24.hasura.app/api/rest/get-user-id"
         const userDetails = { email, password }
         const options = {
@@ -43,7 +52,7 @@ const LoginForm = () => {
         }
         try {
             const response = await fetch(url, options)
-             //console.log(response)
+             console.log(response)
             if (response.ok === true) {
                 const data = await response.json();
                 onSubmitSuccess(data.get_user_id)

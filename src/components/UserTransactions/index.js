@@ -123,6 +123,7 @@ const UserTransactions = () => {
 
         return date.toLocaleString('en-US', options);
     }
+    
 
     const renderAllTransactionsSuccessView = () => {
         const len = transactions.length;
@@ -153,6 +154,7 @@ const UserTransactions = () => {
                             <div className='all-transaction-name-container'>
                                 {transaction.type.toLowerCase() === "credit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690869118/credit-no-clr_fxhpyy.png' alt='creditted' />)}
                                 {transaction.type.toLowerCase() !== "credit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690868931/debit-no-clr_yjqzmc.png' alt='debitted' />)}
+                                
                                 <h1 className='all-transaction-name'>{transaction.transaction_name}</h1>
                             </div>
                             <p className='all-transaction-category'>{transaction.category}</p>
