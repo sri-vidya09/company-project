@@ -80,7 +80,7 @@
 }
 
 .admin-all-transactions-list {
-    padding-left: 0px;
+    padding-left: 5px;
     list-style-type: none;
     background-color: #ffffff;
     border-radius: 20px;
@@ -98,7 +98,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /* border-bottom: 1px solid #E2E2E2; */
+
 }
 
 .separator{
@@ -109,7 +109,9 @@
 .admin-all-transaction-name-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
+    margin-left: 2px;
     width: 25%;
 }
 
@@ -123,6 +125,17 @@
     margin-left: 3px;
     width: 20%;
 }
+.admin-all-transaction-name1{
+    color: #505887;
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-left: 3px;
+    width: 15%;
+
+}
 
 .admin-all-transaction-category {
     color: #718EBF;
@@ -131,6 +144,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    align-items: center;
     width: 15%;
 }
 
@@ -150,7 +164,8 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    width: 10%;
+    width: 20%;
+   
 }
 .debit{
     color: #FE5C73;
@@ -176,4 +191,10 @@
     flex-direction: row;
     /* justify-content: space-around; */
     width: 10%;
+}
+.img-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }

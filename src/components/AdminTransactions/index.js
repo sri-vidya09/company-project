@@ -151,7 +151,7 @@ const AdminTransactions = () => {
                         <div className='admin-all-transaction-name-container'>
                             <h1 className='admin-all-transaction-name' style={{ color: '#343C6A' }}>username</h1>
                         </div>
-                        <p className='admin-all-transaction-name' style={{ color: '#343C6A' }}>Transaction Name</p>
+                        <p className='admin-all-transaction-name1' style={{ color: '#343C6A' }}>Transaction Name</p>
                         <p className='admin-all-transaction-category' style={{ color: '#343C6A' }}>Category</p>
                         <p className='admin-all-transaction-date' style={{ color: '#343C6A' }}>Date</p>
                         <p className="admin-all-transaction-amount" style={{ color: '#343C6A' }}>Amount </p>
@@ -162,11 +162,11 @@ const AdminTransactions = () => {
                     <li key={transaction.id}>
                         <div className='admin-all-transaction-item'>
                             <div className='admin-all-transaction-name-container'>
-                                {transaction.type.toLowerCase() === "credit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690869118/credit-no-clr_fxhpyy.png' alt='creditted' />)}
-                                {transaction.type.toLowerCase() === "debit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690868931/debit-no-clr_yjqzmc.png' alt='debitted' />)}
+                                {transaction.type.toLowerCase() === "credit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690869118/credit-no-clr_fxhpyy.png' alt='creditted' className='img-1'/>)}
+                                {transaction.type.toLowerCase() === "debit" && (<img src='https://res.cloudinary.com/daz94wyq4/image/upload/v1690868931/debit-no-clr_yjqzmc.png' alt='debitted'className='img-1' />)}
                                 {renderTransactionProfile(transaction.user_id)}
                             </div>
-                            <p className='admin-all-transaction-name'>{transaction.transaction_name}</p>
+                            <p className='admin-all-transaction-name1'>{transaction.transaction_name}</p>
                             <p className='admin-all-transaction-category'>{transaction.category}</p>
                             <p className='admin-all-transaction-date'>{formatDate(transaction.date)}</p>
                             <div className='all-transaction-update-delete-container'>
