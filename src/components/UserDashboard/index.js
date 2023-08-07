@@ -20,7 +20,7 @@ const apiStatusConstants = {
 
 
 const UserDashboard = () => {
-    {renderTransactionProfile(transaction.user_id)}
+    const [cookie, _] = useCookies(["user_id"])
     const [transactions, setTransaction] = useState([])
     const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
     const [apiStatusOne, setApiStatusOne] = useState(apiStatusConstants.initial)

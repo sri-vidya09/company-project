@@ -165,3 +165,15 @@
     align-items: center;
     margin-left: 4px;
 }
+.all-transaction-update-delete-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 10%;
+}
+.all-transaction-update-delete-sub-container{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    width: 10%;
+}

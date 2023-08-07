@@ -3,7 +3,10 @@ import './index.css'
 import { useCookies } from 'react-cookie';
 import SideBar from '../Navbar';
 import { TailSpin } from 'react-loader-spinner'
+import DeleteData from '../DeleteData'
+import AddTransaction from '../AddTransaction';
 import axios from 'axios';
+import UpdateTransaction from '../UpdateTransaction';
 import { useNavigate } from 'react-router-dom';
 
 const usernames = [
@@ -166,8 +169,14 @@ const AdminTransactions = () => {
                             <p className='admin-all-transaction-name'>{transaction.transaction_name}</p>
                             <p className='admin-all-transaction-category'>{transaction.category}</p>
                             <p className='admin-all-transaction-date'>{formatDate(transaction.date)}</p>
+                            <div className='all-transaction-update-delete-container'>
                             <p className={`admin-transaction-amount ${transaction.type.toLowerCase() === "credit" ? 'credit' : 'debit'}`}>{`${transaction.type.toLowerCase() === "credit" ? '+' : '-'}$${transaction.amount}`}</p>
-                        </div>
+                             </div>
+                        <div className='all-transaction-update-delete-sub-container'>
+                                <UpdateTransaction transaction={transaction} reloadOperation={fetchAllTransactions} id={activeId} />
+                                <DeleteData transaction={transaction} reloadOperation={fetchAllTransactions} id={activeId} />
+                            </div>
+                            </div>
                         {ind !== len - 1 && (<hr className='separator' />)}
                     </li>
                 ))}
@@ -196,6 +205,7 @@ const AdminTransactions = () => {
                         <div className='admin-transaction-container'>
                             <div className='admin-all-transaction-header-container'>
                                 <h1 className='admin-all-transaction-heading'>Transactions</h1>
+                                <AddTransaction reloadOperation={fetchAllTransactions} id={activeId} />
                             </div>
                             <div className='admin-transaction-btn-container'>
                                 <button className={`admin-transaction-btn ${activeId === 0 ? 'active-btn' : ''}`} onClick={() => fetchAllTransactions(0)}>All Transactions</button>
