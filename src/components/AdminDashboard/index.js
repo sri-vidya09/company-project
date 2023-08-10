@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import { useNavigate } from 'react-router-dom'
-import BarChart from '../BarChart'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import Navbar from '../Navbar'
 import AddTransaction from '../AddTransaction'
 import { TailSpin } from 'react-loader-spinner'
+import BarChart from '../BarChart'
 
 const apiStatusConstants = {
     initial: "INITIAL",

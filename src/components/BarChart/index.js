@@ -1,143 +1,71 @@
 import React from 'react';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './index.css'
 
+function groupByWeekday(transactions) {
+    const weekdays = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const groupedData = {};
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+    weekdays.forEach(weekday => {
+        groupedData[weekday] = { credit: 0, debit: 0 };
+    });
 
-const processData = (data) => {
-    const groupedData = {
-        Sunday: { debit: 0, credit: 0 },
-        Monday: { debit: 0, credit: 0 },
-        Tuesday: { debit: 0, credit: 0 },
-        Wednesday: { debit: 0, credit: 0 },
-        Thursday: { debit: 0, credit: 0 },
-        Friday: { debit: 0, credit: 0 },
-        Saturday: { debit: 0, credit: 0 },
-      };
+    const oneWeekAgo = new Date(); 
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-      data.forEach((item) => {
-        const date = new Date(item.date);
-        const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
-        const type = item.type;
-        groupedData[dayOfWeek][type] += item.sum;
-      });
-        //   console.log(groupedData)
-          const daysOfWeek = Object.keys(groupedData);
-          const debitData = daysOfWeek.map((day) => groupedData[day].debit);
-          const creditData = daysOfWeek.map((day) => groupedData[day].credit);
-          return { daysOfWeek, debitData, creditData };    
-    }
-
-const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            display: false,
-        },
-        title: {
-            display: false,
-        },
-    },
-    layout: {
-        padding: {
-          left: 20,
-          right: 20,
-          top: 20,
-          bottom: 20,
-        },
-      },
-    scales: {
-        x: {
-            grid: {
-                display: false
-            },
-            beginAtZero: true,
-        },
-        y: {
-            min: 0,
-            max: 170000,
-            grid: {
-                display: true
-            },
-            beginAtZero: true,
-            ticks: {
-                stepSize: 1000,
-                callback: (value) => value, 
-            }
+    for (const transaction of transactions){
+        const date = new Date(transaction.date);
+        // console.log(date)
+        if(date == "Invalid Date" || date < oneWeekAgo){
+            continue
+        }
+        const weekday = weekdays[date.getDay()];
+        console.log(transaction)
+        if (transaction.type.toLowerCase() === 'credit') {
+            groupedData[weekday].credit += transaction.sum;
+        } else if (transaction.type.toLowerCase() === 'debit') {
+            groupedData[weekday].debit += transaction.sum;
         }
     }
+
+    return groupedData;
 }
 
-const labels = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-
-const calculateBarThickness = () => {
-    const deviceWidth = window.innerWidth;
-    if(deviceWidth > 767){
-        return 45
-    } else if(deviceWidth > 600){
-        return 40
-    } else if(deviceWidth > 500){
-        return 30
-    } else if(deviceWidth > 400){
-        return 20
-    } else{
-        return 15
-    }
-}
-
-
-const BarChart = props => {
-    const { total7 } = props
-    
-    const { daysOfWeek, debitData, creditData } = processData(total7);
-    const chartData = {
-        labels: labels,
-        datasets: [
-            {
-                label: 'Debit',
-                data: debitData,
-                backgroundColor: '#1f77b4', 
-                borderRadius:15,
-                borderWidth:3,
-                borderColor:"#1f77b4",
-                barThickness:calculateBarThickness(), 
-                padding:10,  
-            },
-            {
-                label: 'Credit',
-                data: creditData,
-                backgroundColor: '#fd7f0e', 
-                borderRadius:10,
-                borderWidth:3,
-                borderColor:"#fd7f0e",
-                barThickness:calculateBarThickness(),
-                padding:10,
-            },
-        ],
-    };
+const CustomBar = (props) => {
+    const { x, y, width, height, fill } = props;
+    const borderRadius=5;
     return (
-        <div className='barchart-container'>
-            <Bar options={options} data={chartData} />
+        <g>
+           <rect x={x} y={y} width={width} height={height} fill={fill} rx={borderRadius} ry={borderRadius} />
+        </g>
+    );
+};
+
+
+const BarGraph = props => {
+    const { total7 } = props
+    const weeklyData = groupByWeekday(total7);
+
+    const chartData = Object.entries(weeklyData).map(([weekday, { credit, debit }]) => ({
+        weekday,
+        credit,
+        debit,
+    }));
+
+    return (
+        <div style={{ overflowX: 'auto' }}>
+            <ResponsiveContainer height={400}  className="chart-container">
+                <BarChart data={chartData} margin={{ top: 10, right: 10, left:10, bottom:0 }} padding={{bottom: -1}} borderRadius={{bottom:0}} barGap={3} >
+                    <CartesianGrid strokeDasharray="none" vertical={false} verticalStrokeWidth={1}/>
+                    <XAxis dataKey="weekday" tickLine={false} />
+                    <YAxis domain={[0, 150000]} tickCount={15} allowDataOverflow={true} tickLine={false} axisLine={false} />
+                    <Tooltip />
+                    <Bar dataKey="debit" fill="#1f77b4" name="Debit" shape={<CustomBar />}  />
+                    <Bar dataKey="credit" fill="#fd7f0e" name="Credit" shape={<CustomBar />} />
+                </BarChart>
+            </ResponsiveContainer>
         </div>
-    )
-}
+    );
+};
 
-
-export default BarChart
+export default BarGraph;
